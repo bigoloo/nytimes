@@ -13,7 +13,7 @@ class InlineTopStoryRepository(
     private val searchFilter: SearchFilter
 
 ) : TopStoryRepository {
-    override suspend fun fetchTopNews(searchTerm: String): List<Story> {
+    override suspend fun fetchTopNews(searchTerm: String?): List<Story> {
         return fetchTopStoryList().mapNotNull { searchFilter.filter(searchTerm, it) }
     }
 
