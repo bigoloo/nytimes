@@ -1,5 +1,7 @@
 package com.bigoloo.nytimes.home.di
 
+import com.bigoloo.nytimes.home.domain.search.SearchFilter
+import com.bigoloo.nytimes.home.domain.search.implementation.TitleSearchFilter
 import com.bigoloo.nytimes.home.network.TopStoryApi
 import com.bigoloo.nytimes.home.viewmodel.HomeViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -11,6 +13,9 @@ val homeModule = module {
         get<Retrofit>().create(TopStoryApi::class.java)
     }
 
+    single<SearchFilter> {
+        TitleSearchFilter()
+    }
     viewModel<HomeViewModel> {
         HomeViewModel(get())
     }

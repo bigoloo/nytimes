@@ -5,5 +5,5 @@ import retrofit2.http.GET
 
 interface TopStoryApi {
     @GET("/world.json")
-    fun getTopStory(): TopStoryResponse
+    suspend fun getTopStory(): TopStoryResponse
 }
