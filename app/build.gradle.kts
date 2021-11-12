@@ -56,6 +56,7 @@ dependencies {
     implementation(project(":home"))
     implementation(project(":navigation"))
 
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
     implementation( "io.insert-koin:koin-core:$koin_version")
     testImplementation( "io.insert-koin:koin-test:$koin_version")
     implementation( "io.insert-koin:koin-android:$koin_version")
