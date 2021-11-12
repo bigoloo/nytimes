@@ -30,6 +30,7 @@ android {
         viewBinding = true
     }
 }
+val koin_version = "3.1.3"
 
 dependencies {
 
@@ -37,6 +38,12 @@ dependencies {
     implementation( "androidx.appcompat:appcompat:1.3.1")
     implementation( "com.google.android.material:material:1.4.0")
     implementation( "androidx.constraintlayout:constraintlayout:2.1.1")
+    implementation( "io.insert-koin:koin-core:$koin_version")
+    testImplementation( "io.insert-koin:koin-test:$koin_version")
+    implementation( "io.insert-koin:koin-android:$koin_version")
+    implementation( "io.insert-koin:koin-androidx-navigation:$koin_version")
+    implementation( "io.insert-koin:koin-androidx-compose:$koin_version")
+    implementation( "io.insert-koin:koin-android-viewmodel:$koin_version")
     testImplementation( "junit:junit:4.+")
     androidTestImplementation( "androidx.test.ext:junit:1.1.3")
     androidTestImplementation( "androidx.test.espresso:espresso-core:3.4.0")

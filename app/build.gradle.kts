@@ -38,7 +38,7 @@ android {
     }
 
 }
-
+val koin_version = "3.1.3"
 dependencies {
 
     implementation("androidx.core:core-ktx:1.7.0")
@@ -55,4 +55,11 @@ dependencies {
     implementation(project(":detail"))
     implementation(project(":home"))
     implementation(project(":navigation"))
+
+    implementation( "io.insert-koin:koin-core:$koin_version")
+    testImplementation( "io.insert-koin:koin-test:$koin_version")
+    implementation( "io.insert-koin:koin-android:$koin_version")
+    implementation( "io.insert-koin:koin-androidx-navigation:$koin_version")
+    implementation( "io.insert-koin:koin-androidx-compose:$koin_version")
+    implementation( "io.insert-koin:koin-android-viewmodel:$koin_version")
 }
