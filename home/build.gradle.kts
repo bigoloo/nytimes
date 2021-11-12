@@ -1,5 +1,5 @@
 plugins {
-    id ("com.android.application")
+    id("com.android.library")
     id ("kotlin-android")
 }
 
@@ -7,11 +7,8 @@ android {
     compileSdk = 31
 
     defaultConfig {
-        applicationId= "com.bigoloo.nytimes.home"
         minSdk= 21
         targetSdk= 31
-        versionCode= 1
-        versionName= "1.0"
 
         testInstrumentationRunner= "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -28,6 +25,9 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
+    }
+    buildFeatures {
+        viewBinding = true
     }
 }
 

@@ -10,3 +10,4 @@ rootProject.name = "Nytimes News"
 include ':app'
 include ':home'
 include ':detail'
+include ':navigation'
