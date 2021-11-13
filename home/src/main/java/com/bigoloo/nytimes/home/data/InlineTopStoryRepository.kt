@@ -7,7 +7,7 @@ import com.bigoloo.nytimes.home.models.Story
 import com.bigoloo.nytimes.home.network.TopStoryApi
 
 
-class InlineTopStoryRepository(
+class InlineTopStoryRepository (
     private val topStoryApi: TopStoryApi,
     private val storyCache: StoryCache,
     private val searchFilter: SearchFilter

@@ -4,6 +4,6 @@ import com.bigoloo.nytimes.home.models.TopStoryResponse
 import retrofit2.http.GET
 
 interface TopStoryApi {
-    @GET("/world.json")
+    @GET("world.json")
     suspend fun getTopStory(): TopStoryResponse
 }
