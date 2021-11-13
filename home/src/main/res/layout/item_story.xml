@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="?selectableItemBackground"
     android:orientation="vertical"
     android:padding="8dp">
 
@@ -19,7 +20,7 @@
     <ImageView
         android:id="@+id/item_story_thumbnail"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:minHeight="200dp"
-        android:scaleType="fitXY"
-        android:layout_height="wrap_content" />
+        android:scaleType="fitXY" />
 </LinearLayout>

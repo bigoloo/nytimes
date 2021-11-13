@@ -5,7 +5,19 @@
 
     app:startDestination="@id/homeScreen">
 
+    <include app:graph="@navigation/detail_nav_graph" />
+
     <fragment
         android:id="@+id/homeScreen"
-        android:name="com.bigoloo.nytimes.home.ui.HomeScreen"/>
+        android:name="com.bigoloo.nytimes.home.ui.HomeScreen" />
+    <action
+        android:id="@+id/navigate_to_detail"
+        app:destination="@+id/detail_nav_graph">
+        <argument
+            android:name="url"
+            app:argType="string"
+            app:nullable="false" />
+
+
+    </action>
 </navigation>

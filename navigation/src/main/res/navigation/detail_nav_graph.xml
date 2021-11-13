@@ -5,5 +5,10 @@
     app:startDestination="@id/detailScreen">
     <fragment
         android:id="@+id/detailScreen"
-        android:name="com.bigoloo.nytimes.detail.DetailScreen"/>
+        android:name="com.bigoloo.nytimes.detail.DetailScreen">
+        <argument
+            android:name="url"
+            app:argType="string"
+            app:nullable="false" />
+    </fragment>
 </navigation>

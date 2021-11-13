@@ -12,7 +12,7 @@ import com.bigoloo.nytimes.home.R
 import com.bigoloo.nytimes.home.databinding.ItemStoryBinding
 import com.bigoloo.nytimes.home.models.Story
 
-class StoryAdaptor(diffCallback: DiffUtil.ItemCallback<Story>) :
+class StoryAdaptor(diffCallback: DiffUtil.ItemCallback<Story>,private val onClickListener:(story:Story)->Unit) :
     ListAdapter<Story, StoryAdaptor.StoryViewHolder>(diffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StoryViewHolder {
@@ -26,13 +26,16 @@ class StoryAdaptor(diffCallback: DiffUtil.ItemCallback<Story>) :
     }
 
     override fun onBindViewHolder(holder: StoryViewHolder, position: Int) {
-        holder.bind(getItem(position))
+        holder.bind(getItem(position),onClickListener)
     }
 
 
     class StoryViewHolder(private val binding: ItemStoryBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(story: Story) {
+        fun bind(story: Story, onClickListener: (story: Story) -> Unit) {
+            binding.root.setOnClickListener {
+                onClickListener(story)
+            }
             binding.itemStoryHeadline.text = story.title
             story.multimedia?.first()?.let {
                 binding.itemStoryThumbnail.isVisible = true

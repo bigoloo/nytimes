@@ -33,6 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:text="@string/error_title"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/screen_home_retry_again"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

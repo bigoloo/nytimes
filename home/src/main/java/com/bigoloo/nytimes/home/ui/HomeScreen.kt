@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.bigoloo.nytimes.home.R
 import com.bigoloo.nytimes.home.databinding.ScreenHomeBinding
@@ -19,6 +20,7 @@ import com.bigoloo.nytimes.home.models.NotLoaded
 import com.bigoloo.nytimes.home.ui.adaptor.DiffCallback
 import com.bigoloo.nytimes.home.ui.adaptor.StoryAdaptor
 import com.bigoloo.nytimes.home.viewmodel.HomeViewModel
+import com.bigoloo.nytimes.navigation.HomeNavGraphDirections
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -46,6 +48,7 @@ class HomeScreen : Fragment() {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return true
             }
+
             override fun onQueryTextChange(query: String?): Boolean {
                 homeViewModel.doSearch(query)
                 return true
@@ -67,7 +70,9 @@ class HomeScreen : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        storyAdaptor = StoryAdaptor(DiffCallback())
+        storyAdaptor = StoryAdaptor(DiffCallback()) {
+            findNavController().navigate(HomeNavGraphDirections.navigateToDetail(it.url))
+        }
         binding.screenHomeRetryAgain.setOnClickListener {
             homeViewModel.doSearch(null)
         }
@@ -83,8 +88,9 @@ class HomeScreen : Fragment() {
 
     override fun onResume() {
         super.onResume()
-     modifyActionBar()
+        modifyActionBar()
     }
+
     private fun modifyActionBar() {
         val actionbar = (requireActivity() as AppCompatActivity).supportActionBar!!
         actionbar.title = getString(R.string.top_stories)
