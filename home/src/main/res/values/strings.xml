@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Home</string>
     <string name="search_title">Search</string>
+    <string name="error_title">Some Thing Wrong is happend!!</string>
+    <string name="retry">Try Again</string>
+    <string name="top_stories">Top Stories</string>
 </resources>

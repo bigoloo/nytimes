@@ -7,5 +7,5 @@
 
     <fragment
         android:id="@+id/homeScreen"
-        android:name="com.bigoloo.nytimes.home.HomeScreen"/>
+        android:name="com.bigoloo.nytimes.home.ui.HomeScreen"/>
 </navigation>

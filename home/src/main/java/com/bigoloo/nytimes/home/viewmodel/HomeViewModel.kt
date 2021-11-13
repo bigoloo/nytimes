@@ -9,7 +9,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 class HomeViewModel(private val topStoryRepository: TopStoryRepository) : ViewModel() {
 
@@ -29,15 +28,17 @@ class HomeViewModel(private val topStoryRepository: TopStoryRepository) : ViewMo
             "doSearch", "/$searchTerm/"
         )
         if (_state.value is Loading) return
+
+        _state.value = Loading
         viewModelScope.launch(Dispatchers.IO) {
             runCatching {
                 topStoryRepository.fetchTopNews(searchTerm)
             }.fold({
 
-                  Log.d(
-                      "doSearch", "${it.size}"
-                  )
-                  _state.value = Loaded(it)
+                Log.d(
+                    "doSearch", "${it.size}"
+                )
+                _state.value = Loaded(it)
 
             }, {
 
