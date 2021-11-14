@@ -8,7 +8,7 @@ class TitleSearchFilter : SearchFilter {
         return when {
             searchTerm.isNullOrEmpty() -> story
             else -> {
-                if (story.title.contains(searchTerm)) {
+                if (story.title.lowercase().contains(searchTerm.lowercase())) {
                     story
                 } else null
             }
