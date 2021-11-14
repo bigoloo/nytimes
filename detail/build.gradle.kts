@@ -29,7 +29,6 @@ android {
         viewBinding = true
     }
 }
-val koin_version = "3.1.3"
 
 dependencies {
 
