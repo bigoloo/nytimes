@@ -1,4 +1,4 @@
-# NyTimes Top Stories Application
+# NYTimes Top Stories Application
 ## _Read The news and Enjoy_
 
 
@@ -24,6 +24,14 @@ The navigation module has responsibility for navigating between modules.
 To generate APK file do the bellow command
  ```
   ./gradlew assembleDebug
+  
  ```
 
+
+#Improvement Area 
+
+ - Theming (Add Dark Theme)
+ - Refactor Using compose 
+ - Add fastlane for deploying to Google Play 
+ - Implement Core UI module
 
