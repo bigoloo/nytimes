@@ -6,8 +6,17 @@
 - Implement with TDD approach
 - Using ServiceLocator (Koin)
 - Integrated with github Workflows (Now it run the tests every time that commits is pushed )
-- Using modular approach 
+- Using modular approach
+- Using LeakCanary for detecting leaks 
 
+
+
+## Architecture 
+<img src="https://raw.githubusercontent.com/bigoloo/nytimes/master/asset/architucture.png"/></br>
+
+This application has two feature module and one navigation module.
+
+The navigation module has responsibility for navigating between modules.
 
 
 ## How to install
