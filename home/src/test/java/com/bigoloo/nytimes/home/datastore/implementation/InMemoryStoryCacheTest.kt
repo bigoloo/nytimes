@@ -3,8 +3,10 @@ package com.bigoloo.nytimes.home.datastore.implementation
 import com.bigoloo.nytimes.home.datastore.StoryCache
 import com.bigoloo.nytimes.home.models.Multimedia
 import com.bigoloo.nytimes.home.models.Story
+import org.junit.Assert.assertEquals
+
 import org.junit.Test
-import kotlin.test.assertEquals
+
 
 class InMemoryStoryCacheTest {
 
@@ -12,7 +14,7 @@ class InMemoryStoryCacheTest {
     @Test
     fun `when story cache is created it's data should be empty`() {
         val storyCache: StoryCache = InMemoryStoryCache()
-        assertEquals(listOf(), storyCache.getStoryList())
+        assertEquals(listOf<Story>(), storyCache.getStoryList())
     }
 
     @Test
@@ -21,7 +23,7 @@ class InMemoryStoryCacheTest {
         val mockStoryList = listOf(
             Story(
                 title = "this is real title ", abstract = "", url = "", uri = "", byLine = "Amin",
-                Multimedia(""), ""
+                listOf(Multimedia("")), ""
             )
         )
         storyCache.setStoryList(mockStoryList)
@@ -34,12 +36,12 @@ class InMemoryStoryCacheTest {
         val mockStoryList = listOf(
             Story(
                 title = "this is real title ", abstract = "", url = "", uri = "", byLine = "Amin",
-                Multimedia(""), ""
+                listOf(Multimedia("")), ""
             )
         )
         storyCache.setStoryList(mockStoryList)
         storyCache.invalidate()
-        assertEquals(listOf(), storyCache.getStoryList())
+        assertEquals(listOf<Story>(), storyCache.getStoryList())
     }
 
 }

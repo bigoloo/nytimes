@@ -17,9 +17,10 @@ import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.setMain
 import org.junit.After
+import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
-import kotlin.test.assertEquals
+
 
 class InlineTopStoryRepositoryTest {
 
@@ -55,7 +56,7 @@ class InlineTopStoryRepositoryTest {
         val apiResult = listOf(
             Story(
                 title = "this is real title ", abstract = "", url = "", uri = "", byLine = "Amin",
-                Multimedia(""), ""
+                listOf(Multimedia("")), ""
             )
         )
         coEvery { topStoryApi.getTopStory() } returns TopStoryResponse(apiResult)
@@ -77,7 +78,7 @@ class InlineTopStoryRepositoryTest {
         val apiResult = listOf(
             Story(
                 title = "this is real title ", abstract = "", url = "", uri = "", byLine = "Amin",
-                Multimedia(""), ""
+                listOf(Multimedia("")), ""
             )
         )
         coEvery { topStoryApi.getTopStory() } returns TopStoryResponse(apiResult)
@@ -94,13 +95,13 @@ class InlineTopStoryRepositoryTest {
         val cacheItems = listOf(
             Story(
                 title = "this is real title ", abstract = "", url = "", uri = "", byLine = "Amin",
-                Multimedia(""), ""
+                listOf(Multimedia("")), ""
             )
         )
         val apiResponse = listOf(
             Story(
                 title = "this is real title 2 ", abstract = "", url = "", uri = "", byLine = "Amin",
-                Multimedia(""), ""
+                listOf(Multimedia("")), ""
             )
         )
         coEvery { topStoryApi.getTopStory() } returns TopStoryResponse(apiResponse)
